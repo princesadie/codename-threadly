@@ -1,0 +1,52 @@
+.thr-header {
+  height: 30rem;
+  overflow: hidden;
+  video {
+    bottom: 0rem;
+    position: absolute;
+    width: 100%;
+    height: auto;
+  }
+  .thr-header-content {
+    padding-top: 16rem;
+    h1 {
+      color: #FFFFFF;
+      font-size: 2.5rem;
+    }
+  }
+}
+
+.thr-subheader {
+  color: $text-regular;
+  h1 {
+    text-align: center;
+    padding: 4rem 1rem;
+    font-weight: 300;
+  }
+}
+
+.thr-content-0 {
+  background-color: $dark-blue;
+  padding: 2rem;
+  color: #FFFFFF;
+  font-weight: 300;
+  h1 {
+    padding-top: 1rem;
+    font-weight: 300;
+  }
+  p {
+    font-weight: 100;
+  }
+  i {
+    font-size: 5rem;
+  }
+}
+
+@media only screen and (max-width: 854px) {
+  .thr-header {
+    video {
+      height: 100%;
+      width: auto;
+    }
+  }
+}

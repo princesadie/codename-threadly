@@ -1,0 +1,55 @@
+nav {
+  font-family: 'Roboto';
+  background-color: #FFFFFF;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  .thr-logo {
+    font-family: 'Pacifico';
+    font-size: 2rem;
+    padding-left: 5rem;
+    color: $primary;
+  }
+  a {
+    color: $text-regular;
+  }
+}
+
+.thr-no-padding {
+  padding: 0;
+}
+
+// Buttons
+.thr-btn {
+  border: none;
+  background: none;
+  text-transform: uppercase;
+  padding: 1rem 1.5rem;
+  font-family: 'Roboto';
+  font-weight: 600;
+  color: $text-regular;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+.thr-btn:hover {
+  cursor: pointer;
+}
+.thr-btn:focus{
+  outline: none;
+}
+.thr-btn-info {
+  background-color: $info;
+}
+.thr-btn-info:hover {
+  background-color: $primary;
+  color: $info;
+}
+.thr-btn-primary {
+  background-color: $primary;
+  color: $info;
+}
+.thr-btn-primary:hover {
+  background-color: $info;
+  color: $text-regular;
+}
+.thr-btn-fluid {
+  width: 100%;
+}
