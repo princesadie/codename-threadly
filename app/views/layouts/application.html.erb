@@ -10,6 +10,17 @@
 
   <body>
     <%= render :partial => '/shared/nav.html.slim'%>
-    <%= yield %>
+    <main role="main" class="container-fluid thr-main-content thr-no-padding">
+      <%= yield %>
+      <% if notice %>
+        <p class="alert alert-success"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
+    </main>
+    <footer class="footer">
+      <%= render :partial => '/shared/footer.html.slim'%>
+    </footer>
   </body>
 </html>

@@ -1,7 +1,7 @@
 .container-fluid.thr-no-padding.position-fixed.thr-nav
   .row.py-3
     .col-lg-12
-      a.navbar-brand.d-flex.justify-content-center.thr-logo href="#" Threadly
+      a.navbar-brand.d-flex.justify-content-center.thr-logo href="/" Threadly
   .row
     .col-lg-12
       nav.navbar.navbar-expand-lg.navbar-light
@@ -11,5 +11,8 @@
           .navbar-nav
             a.nav-item.nav-link href="#" Start My Page
             a.nav-item.nav-link href="#"  Explore Designers
-            a.nav-item.nav-link href="#"  Sign Up
-            a.nav-item.nav-link href="#"  Log In
+            = link_to 'Sign Up', new_user_registration_path, class: 'nav-item nav-link'
+            - if user_signed_in?
+              = link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'nav-item nav-link'
+            - else
+              = link_to 'Log In', new_user_session_path, class: 'nav-item nav-link'

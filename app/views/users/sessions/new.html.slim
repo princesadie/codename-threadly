@@ -1,0 +1,14 @@
+.container.thr-form.pt-5
+  .row
+    .col-sm-12.col-lg-2
+    .col-sm-12.col-lg-8
+      h2 Log in
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .form-group
+          = f.email_field :email, class: 'form-control form-control_extension', placeholder: 'Email', autofocus: true
+        .form-group
+          = f.password_field :password, class: 'form-control form-control_extension', placeholder: 'Password', autocomplete: "off"
+        .actions.py-5
+          = f.submit "Log in", class: 'thr-btn thr-btn-fluid thr-btn-primary'
+        = render "users/shared/links"
+    .col-sm-12.col-lg-2
