@@ -1,17 +1,15 @@
-nav.navbar.navbar-expand-md.fixed-top
-  button.navbar-toggler data-target=".dual-collapse" data-toggle="collapse" type="button" 
-    span.navbar-toggler-icon
-  .navbar-collapse.collapse.dual-collapse
-    ul.navbar-nav.mr-auto
-      li.nav-item.active
-        a.navbar-brand.d-flex.mx-auto.thr-logo href="#" Threadly
-  .navbar-collapse.collapse.dual-collapse
-    ul.navbar-nav.ml-auto
-      li.nav-item
-        a.nav-link href="#"  Start My Page
-      li.nav-item
-        a.nav-link href="#"  Explore Designers
-      li.nav-item
-        a.nav-link href="#"  Sign Up
-      li.nav-item
-        a.nav-link href="#"  Log In
+.container-fluid.thr-no-padding.position-fixed.thr-nav
+  .row.py-3
+    .col-lg-12
+      a.navbar-brand.d-flex.justify-content-center.thr-logo href="#" Threadly
+  .row
+    .col-lg-12
+      nav.navbar.navbar-expand-lg.navbar-light
+        button.navbar-toggler aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarNavAltMarkup" data-toggle="collapse" type="button" 
+          span.navbar-toggler-icon
+        #navbarNavAltMarkup.collapse.navbar-collapse.justify-content-center
+          .navbar-nav
+            a.nav-item.nav-link href="#" Start My Page
+            a.nav-item.nav-link href="#"  Explore Designers
+            a.nav-item.nav-link href="#"  Sign Up
+            a.nav-item.nav-link href="#"  Log In
