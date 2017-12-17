@@ -10,14 +10,12 @@
 
   <body>
     <%= render :partial => '/shared/nav.html.slim'%>
-    <main role="main" class="container-fluid thr-main-content thr-no-padding">
-      <%= yield %>
-      <% if notice %>
-        <p class="alert alert-success"><%= notice %></p>
-      <% end %>
-      <% if alert %>
-        <p class="alert alert-danger"><%= alert %></p>
-      <% end %>
-    </main>
+    <%= yield %>
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
   </body>
 </html>

@@ -1,21 +1,19 @@
-.container.thr-form.pt-5
-  .row
-    .col-sm-12.col-lg-2
-    .col-sm-12.col-lg-8
-      h2 Sign up
-      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-        = devise_error_messages!
-        .form-group
-          = f.text_field :name, class: 'form-control form-control_extension', placeholder: 'Name', autofocus: true
-        .form-group
-          = f.email_field :email, class: 'form-control form-control_extension', placeholder: 'Email'
-        .form-group
-          = f.password_field :password, class: 'form-control form-control_extension', placeholder: 'Password', autocomplete: "off"
-        .field
-          = f.password_field :password_confirmation, class: 'form-control form-control_extension', placeholder: 'Confirm Password', autocomplete: "off"
-        .actions.py-5
-          = f.submit "Sign up", class: 'thr-btn thr-btn-fluid thr-btn-primary'
-        = render "users/shared/links"
-    .col-sm-12.col-lg-2
-footer.footer.footer-fixed-bottom
+main.thr-main-content.sign-up
+  .container.my-5
+    .row.thr-form.
+      .col
+        h2 Sign up
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = devise_error_messages!
+          .form-group
+            = f.text_field :name, class: 'form-control form-control_extension', placeholder: 'Name', autofocus: true
+          .form-group
+            = f.email_field :email, class: 'form-control form-control_extension', placeholder: 'Email'
+          .form-group
+            = f.password_field :password, class: 'form-control form-control_extension', placeholder: 'Password', autocomplete: "off"
+          .field
+            = f.password_field :password_confirmation, class: 'form-control form-control_extension', placeholder: 'Confirm Password', autocomplete: "off"
+          .actions.py-5
+            = f.submit "Sign up", class: 'thr-btn thr-btn-fluid thr-btn-primary'
+footer.footer
   = render :partial => '/shared/footer.html.slim'
