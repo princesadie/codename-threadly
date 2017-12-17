@@ -1,0 +1,32 @@
+.thr-nav {
+  font-family: 'Roboto';
+  background-color: #FFFFFF;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  z-index: 9999;
+  .nav-link {
+    letter-spacing: 0.025rem;
+    color: $text-regular;
+  }
+  .nav-link:hover {
+    color: $primary;
+  }
+  .navbar-light .navbar-toggler {
+    width: 100%;
+  }
+  button:focus {
+    outline: none;
+  }
+  .nav-profile-img {
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    margin-left: 1rem;
+  }
+}
+
+a.thr-logo {
+  font-family: 'Pacifico';
+  font-size: 1.75rem;
+  padding-left: 1rem;
+  color: $primary;
+}

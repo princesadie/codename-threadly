@@ -52,7 +52,10 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  #Added by Prince Sadie
+  # Added by Prince Sadie
   config.assets.compile = true
   config.public_file_server.enabled = true
+
+  # Devise config
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 end

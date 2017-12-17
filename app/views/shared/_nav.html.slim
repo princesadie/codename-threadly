@@ -1,15 +1,32 @@
 .container-fluid.thr-no-padding.position-fixed.thr-nav
-  .row.py-3
-    .col-lg-12
-      a.navbar-brand.d-flex.justify-content-center.thr-logo href="#" Threadly
   .row
     .col-lg-12
-      nav.navbar.navbar-expand-lg.navbar-light
-        button.navbar-toggler aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarNavAltMarkup" data-toggle="collapse" type="button" 
-          span.navbar-toggler-icon
-        #navbarNavAltMarkup.collapse.navbar-collapse.justify-content-center
-          .navbar-nav
-            a.nav-item.nav-link href="#" Start My Page
-            a.nav-item.nav-link href="#"  Explore Designers
-            a.nav-item.nav-link href="#"  Sign Up
-            a.nav-item.nav-link href="#"  Log In
+      nav.navbar.navbar-expand-md
+        a.navbar-brand.abs.thr-logo href="/"  Threadly
+        -if user_signed_in?
+          button.navbar-toggler data-target="#collapsingNavbar" data-toggle="collapse" type="button" 
+            span.navbar-toggler-icon
+          #collapsingNavbar.navbar-collapse.collapse
+            ul.navbar-nav.ml-auto.navbar-light
+              li.nav-item
+                a.nav-link href="#"  Dashboard
+              li.nav-item
+                a.nav-link href="#"  Messages
+              li.nav-item
+                a.nav-link href="#"  Explore Designers
+              = link_to 'Settings', edit_user_registration_path, class: 'nav-item nav-link'
+              = link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'nav-item nav-link'
+            = image_tag(current_user.avatar.url(:thumb), class: 'nav-profile-img')
+        -else
+          button.navbar-toggler data-target="#collapsingNavbar" data-toggle="collapse" type="button" 
+            span.navbar-toggler-icon
+          #collapsingNavbar.navbar-collapse.collapse
+            ul.navbar-nav.ml-auto.navbar-light
+              li.nav-item
+                a.nav-link href="#"  Stat My Page
+              li.nav-item
+                a.nav-link href="#"  Explore Designers
+              = link_to 'Sign Up', new_user_registration_path, class: 'nav-item nav-link'
+              = link_to 'Log In', new_user_session_path, class: 'nav-item nav-link'
+              
+              
