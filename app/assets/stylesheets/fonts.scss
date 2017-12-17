@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'Pacifico';
-  src:url('pacifico.eot');
-  src:url('pacifico.eot?#iefix') format('embedded-opentype'),
-    url('pacifico.svg#icomoon') format('svg'),
-    url('pacifico.woff') format('woff'),
-    url('pacifico.ttf') format('truetype');
+  src:  asset-url('pacifico.eot');
+  src:  asset-url('pacifico.eot?#iefix') format('embedded-opentype'),
+        asset-url('pacifico.svg#icomoon') format('svg'),
+        asset-url('pacifico.woff') format('woff'),
+        asset-url('pacifico.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
