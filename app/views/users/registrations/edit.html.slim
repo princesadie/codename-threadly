@@ -1,0 +1,51 @@
+.container-fluid.thr-no-padding
+  .row
+    #sidebar.col-sm-2.col-lg-2
+      ul
+        li.active
+          a href='#' Profile
+        li
+          a href='#' Account
+        li
+          a href='#' Payment Methods
+        li
+          a href='#' Payout Preferences
+        li
+          a href='#' Email Settings
+    #profile.col-sm-10.col-lg-10.thr-form
+      .container.pt-5.section
+        .header
+          h1 Edit Profile
+      .container.pt-2
+        = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true }) do |f|
+          .form-group
+            = f.file_field :avatar
+          .form-group
+            = image_tag(current_user.avatar.url(:thumb))
+          .form-group
+            = f.text_field :name, class: 'form-control form-control_extension', placeholder: 'Name'
+          .form-group
+            = f.email_field :email, class: 'form-control form-control_extension', placeholder: 'Email'
+          .form-group
+            - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+              div Currently waiting confirmation for: #{resource.unconfirmed_email}
+          .form-group
+            = f.password_field :current_password, class: 'form-control form-control_extension', placeholder: 'Current Password', autocomplete: "off"
+          .form-group
+            = f.password_field :password, class: 'form-control form-control_extension', placeholder: 'New Password', autocomplete: "off"
+          .form-group
+            = f.password_field :password_confirmation, class: 'form-control form-control_extension', placeholder: 'Confirm New Password', autocomplete: "off"
+            - if @minimum_password_length
+              br/
+              em
+                = @minimum_password_length
+                |  characters minimum (leave blank if you don't want to change it)
+          .actions
+            = f.submit "Save Changes", class: 'thr-btn thr-btn-fluid thr-btn-primary'
+        p
+          | Unhappy?
+        = button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'thr-btn thr-btn-primary'
+
+
+
+        
