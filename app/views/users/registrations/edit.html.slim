@@ -1,51 +1,98 @@
-.container-fluid.thr-no-padding
-  .row
-    #sidebar.col-sm-2.col-lg-2
-      ul
-        li.active
-          a href='#' Profile
-        li
-          a href='#' Account
-        li
-          a href='#' Payment Methods
-        li
-          a href='#' Payout Preferences
-        li
-          a href='#' Email Settings
-    #profile.col-sm-10.col-lg-10.thr-form
-      .container.pt-5.section
-        .header
-          h1 Edit Profile
-      .container.pt-2
-        = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true }) do |f|
-          .form-group
-            = f.file_field :avatar
-          .form-group
-            = image_tag(current_user.avatar.url(:thumb))
-          .form-group
-            = f.text_field :name, class: 'form-control form-control_extension', placeholder: 'Name'
-          .form-group
-            = f.email_field :email, class: 'form-control form-control_extension', placeholder: 'Email'
-          .form-group
-            - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-              div Currently waiting confirmation for: #{resource.unconfirmed_email}
-          .form-group
-            = f.password_field :current_password, class: 'form-control form-control_extension', placeholder: 'Current Password', autocomplete: "off"
-          .form-group
-            = f.password_field :password, class: 'form-control form-control_extension', placeholder: 'New Password', autocomplete: "off"
-          .form-group
-            = f.password_field :password_confirmation, class: 'form-control form-control_extension', placeholder: 'Confirm New Password', autocomplete: "off"
-            - if @minimum_password_length
-              br/
-              em
-                = @minimum_password_length
-                |  characters minimum (leave blank if you don't want to change it)
-          .actions
-            = f.submit "Save Changes", class: 'thr-btn thr-btn-fluid thr-btn-primary'
-        p
-          | Unhappy?
-        = button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'thr-btn thr-btn-primary'
-
+main.thr-main-content.settings
+  .container-fluid.thr-no-padding
+    .row
+      #sidebar.col-sm-2.col-lg-2
+        ul
+          li.settings-btn.active#settingsProfile data-target='profile'
+            span Profile
+          li.settings-btn#settingsAccount data-target='account'
+            span Account
+          li.settings-btn#settingsPaymentMethods data-target='paymentMethods'
+            span Payment Methods
+          li.settings-btn#settingsPayoutPreferences data-target='payoutPreferences'
+            span Payout Preferences
+          li.settings-btn#settingsEmailSettings data-target='emailSettings'
+            span Email Settings
+      #profile.col-sm-10.col-lg-10.settings-section
+        .container.thr-settings-form
+          .row
+            .col
+              .container.pt-2
+                = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true }) do |f|
+                  .row
+                    .col-sm-3.col-md-3.col-lg-3
+                      .user-avatar-preview
+                        = image_tag(current_user.avatar.url(:thumb), id: 'user_avatar_container')
+                    .col-sm-9.col-md-9.col-lg-9
+                      button#newAvatarButton.thr-btn.thr-btn-primary type='button' CHOOSE NEW IMAGE
+                      = f.file_field :avatar, hidden: true
+                  .form-group
+                    - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+                      div.pt-3 Currently waiting confirmation for: #{resource.unconfirmed_email}
+                  .row.pt-3
+                    .col-3
+                      label Name
+                    .col-9
+                      = f.text_field :name, class: 'form-control form-control_extension', placeholder: 'Name'
+                  .row.pt-3
+                    .col-3
+                      label Email
+                    .col-9
+                      = f.email_field :email, class: 'form-control form-control_extension', placeholder: 'Email'
+                  .row.pt-3
+                    .col-3
+                      label Creator Page
+                    .col-9
+                      button.thr-btn.thr-btn-primary type='button' BECOME A CREATOR
+                  .row.pt-3
+                    .col-3
+                      label Threadly Handle
+                    .col-9
+                      = f.text_field :name, class: 'form-control form-control_extension', placeholder: 'Username'
+                  .row.pt-3
+                    .col-3
+                      label About You
+                    .col-9
+                      = f.text_area :about, class: 'form-control form-control_extension', placeholder: 'Info about you'
+                  .actions.pt-3
+                    = f.submit "Save Changes", class: 'thr-btn thr-btn-fluid thr-btn-primary'
+      #account.col-sm-10.col-lg-10.settings-section.hidden
+        .container.thr-settings-form
+          .row
+            .col
+              .container.pt-2
+                = form_for(@user, :url => { :action => "update_password", controller: 'users', method: "patch" } ) do |f|
+                  .row.pt-3.header
+                    .col
+                      h1 Change Password
+                  .row.pt-3
+                    .col-3
+                      label Old Password
+                    .col-9
+                      = f.password_field :current_password, class: 'form-control form-control_extension', placeholder: 'Old Password', autocomplete: "off"
+                  .row.pt-3
+                    .col-3
+                      label New Password
+                    .col-9
+                        = f.password_field :password, class: 'form-control form-control_extension', placeholder: 'New Password', autocomplete: "off"
+                  .row.pt-3
+                    .col-3
+                      label Confirm Password
+                    .col-9
+                      = f.password_field :password_confirmation, class: 'form-control form-control_extension', placeholder: 'Confirm New Password', autocomplete: "off"
+                  .actions.pt-3
+                    = f.submit "Update Password", class: 'thr-btn thr-btn-fluid thr-btn-primary'
+        .container.thr-settings-form
+          .row
+            .col
+              .container.pt-2
+                = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+                  .row.pt-3.header
+                    .col
+                      h1 Cancel Account
+                  .row.pt-3
+                    .col
+                      = button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'thr-btn thr-btn-primary'
 
 
         
