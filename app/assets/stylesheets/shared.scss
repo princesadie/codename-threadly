@@ -57,3 +57,14 @@ main {
 .hidden {
   display: none;
 }
+
+.responsive-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.responsive-img-container {
+  max-height: 16rem;
+  overflow: hidden;
+}

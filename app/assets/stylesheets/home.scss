@@ -38,10 +38,32 @@
   p {
     font-weight: 100;
     letter-spacing: 0.025rem;
+    font-family: 'Raleway';
   }
   i {
     font-size: 5rem;
   }
+}
+
+.thr-content-dark {
+  background-color: $dark-blue;
+  padding: 2rem;
+  color: #FFFFFF;
+  font-weight: 300;
+}
+
+.thr-content-light {
+  background-color: #FFFFFF;
+  padding: 2rem;
+  color: $text-regular;
+  font-weight: 300;
+}
+
+.thr-content-neutral {
+  background-color: $light-gray;
+  padding: 2rem;
+  color: $text-regular;
+  font-weight: 300;
 }
 
 .thr-main-content {
