@@ -3,4 +3,9 @@ Rails.application.routes.draw do
   root 'pages#index'
 
   resources :users, only: [:show]
+  resource :user, only: [:edit] do
+    collection do
+      patch 'update_password'
+    end
+  end
 end
