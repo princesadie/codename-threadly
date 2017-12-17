@@ -4,6 +4,7 @@ html, body {
   flex-direction: column;
   min-height: 100vh;
   font-family: 'Poppins', 'Raleway', sans-serif;
+  overflow-x: hidden;
 }
 body {
   letter-spacing: 0.025rem;
@@ -40,16 +41,14 @@ main {
   background-color: $info;
 }
 .thr-btn-info:hover {
-  background-color: $primary;
-  color: #FFFFFF;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 .thr-btn-primary {
   background-color: $primary;
   color: #FFFFFF;
 }
 .thr-btn-primary:hover {
-  background-color: $info;
-  color: $text-regular;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 .thr-btn-fluid {
   width: 100%;
